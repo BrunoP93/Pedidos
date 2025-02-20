@@ -31,7 +31,6 @@ const ListaPedidos = () => {
 
     const handleFilter = (event) => {
         const newData = todosPedidos.filter(d => {
-            console.log(d);
             return d.produto.toLowerCase().includes(event.target.value.toLowerCase());
         })
         setFiltroPedidos(newData);
@@ -47,48 +46,51 @@ const ListaPedidos = () => {
         setFormVisivel(true);
     }
 
-
-
     const cadastrarPedido = () => {
         event.preventDefault();
-        const obj = {
-            cliente: clienteRef.current.value,
-            produto: produtoRef.current.value,
-            valor: Number(valorRef.current.value),
-            status: parseInt(statusRef.current.value),
-        }
+
+        const cliente = clienteRef.current.value;
+        const produto = produtoRef.current.value;
+        const valor = parseFloat(valorRef.current.value);
+        // const status = parseInt(statusRef.current.value);
 
         if (
-            obj.cliente === '' || obj.cliente === null ||
-            obj.produto === '' || obj.produto === null ||
-            obj.valor === '' || obj.valor === null ||
-            obj.status === '' || obj.status === null
+            cliente === '' || cliente === null ||
+            produto === '' || produto === null ||
+            valor === '' || valor === null
         ) {
             alert('Todos os campos devem ser preenchidos!');
             return;
         }
 
-        console.log(typeof obj.status)
+        const data = {
+            cliente,
+            produto,
+            valor,
+        }
+
+        console.log("hhhhhhhhh")
+        console.log(data)
+        console.log("hhhhhhhhh")
 
         axios.post('https://localhost:44310/api/Pedido', {
-            pedido: obj
+            cliente,
+            produto,
+            valor,
         }).then((response) => {
-            console.log(response.data);
+            console.log(response);
+            alert("Funcionou!")
         }).catch((err) => {
             console.log(err);
+            alert("Erro!")
         });
-
-        axios.post('/user', {
-            firstName: 'Fred',
-            lastName: 'Flintstone'
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
     }
+
+    // const formatarData = (d) => {
+    //     var dia = d.getDate().toString();
+    //     console.log(dia);
+    //     return "Teste";
+    // }
 
 
     return (
@@ -179,16 +181,16 @@ const ListaPedidos = () => {
                                                 <h3 className="text-base font-semibold text-gray-900 text-[25px]" id="modal-title">Cadastrar Pedido</h3>
                                                 <hr className='my-3 text-gray-400 w-[100%] text-center' />
                                                 <form className="my-5 flex flex-col gap-5" onSubmit={() => cadastrarPedido()}>
-                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                                                        <input className='block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Produto' name='produto' ref={produtoRef} />
+                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2">
+                                                        <input className='w-100 block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Produto' name='produto' ref={produtoRef} />
                                                     </div>
-                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                                                        <input className='block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Cliente' name='cliente' ref={clienteRef} />
+                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2">
+                                                        <input className='w-100 block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Cliente' name='cliente' ref={clienteRef} />
                                                     </div>
-                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                                                        <input className='w-98 block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="number" placeholder='Valor' name='valor' ref={valorRef} />
+                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2">
+                                                        <input className='w-98 block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Valor' name='valor' ref={valorRef} />
                                                     </div>
-                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+                                                    <div className="w-100 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2">
                                                         <select className='w-95 block min-w-0 grow py-1.5 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Status' name='status' ref={statusRef} >
                                                             <option value="0">Pendente</option>
                                                             <option value="1">Processando</option>

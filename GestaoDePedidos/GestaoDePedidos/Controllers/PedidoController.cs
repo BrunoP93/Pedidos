@@ -2,6 +2,7 @@
 using GestaoDePedidos.Data;
 using GestaoDePedidos.Model;
 using Microsoft.EntityFrameworkCore;
+using GestaoDePedidos.ViewModel;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,7 +29,7 @@ namespace GestaoDePedidos.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(Guid id)
         {
-            var pedido = await _context.Pedidos.FirstOrDefaultAsync(x => x.id == id);
+            var pedido = await _context.Pedidos.FirstOrDefaultAsync(x => x.Id == id);
 
             if(pedido == null)
             {
@@ -40,11 +41,10 @@ namespace GestaoDePedidos.Controllers
 
         // POST api/<PedidosController>
         [HttpPost]
-        public async Task<ActionResult> Post(PedidoModel pedido)
+        public async Task<ActionResult> Post([FromBody] PedidoViewModel pedido)
         {
-            return Ok(pedido);
-
-            var novoPedido = new PedidoModel(pedido.cliente,pedido.produto, pedido.valor, pedido.status );
+            if (pedido == null) return BadRequest("Erro ao enviar valores");
+            var novoPedido = new PedidoModel(pedido.Cliente,"teste", 2500);
 
             await _context.Pedidos.AddAsync(novoPedido);
             await _context.SaveChangesAsync();
