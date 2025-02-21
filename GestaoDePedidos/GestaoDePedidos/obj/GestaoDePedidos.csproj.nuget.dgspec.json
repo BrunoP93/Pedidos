@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruno\\Desktop\\Gestao-de-Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj": {}
+    "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruno\\Desktop\\Gestao-de-Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj": {
+    "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruno\\Desktop\\Gestao-de-Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj",
+        "projectUniqueName": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj",
         "projectName": "GestaoDePedidos",
-        "projectPath": "C:\\Users\\Bruno\\Desktop\\Gestao-de-Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj",
+        "projectPath": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj",
         "packagesPath": "C:\\Users\\Bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruno\\Desktop\\Gestao-de-Pedidos\\GestaoDePedidos\\GestaoDePedidos\\obj\\",
+        "outputPath": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",

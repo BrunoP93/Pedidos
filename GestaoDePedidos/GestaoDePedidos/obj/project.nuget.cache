@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iG5KAomC1/eVITtZ0B9pYrX7qtsPv27GorYxx2CdxXo0yEWgHVPKYtgIXaz43RH8jVtLX0/kfyUqbeLMyGtgvQ==",
+  "dgSpecHash": "g/OCE/8UVkitmEH/U/qF7MjqfOHrseW1Rfh8pnr7S3yLKJgHykHm9t3E8WXzAuDqXm0tVEYd67t3WXXPPU2Ltw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bruno\\Desktop\\Gestao-de-Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj",
+  "projectFilePath": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\GestaoDePedidos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bruno\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Bruno\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

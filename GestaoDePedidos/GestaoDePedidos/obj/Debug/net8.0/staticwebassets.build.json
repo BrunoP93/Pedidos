@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mVKytSh3YfT6yyRkD8utiSCGRqHFGqqV6kDc/A2X0+E=",
+  "Hash": "cFreAMJgQIyXL22UdsnHe2uW6co6Xkc1XtC1eI6FXDw=",
   "Source": "GestaoDePedidos",
   "BasePath": "_content/GestaoDePedidos",
   "Mode": "Default",
@@ -47,10 +47,10 @@
       "OriginalItemSpec": "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.11\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\Bruno\\Desktop\\GestaoDePedidos\\GestaoDePedidos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestaoDePedidos.styles.css",
+      "Identity": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestaoDePedidos.styles.css",
       "SourceId": "GestaoDePedidos",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Bruno\\Desktop\\GestaoDePedidos\\GestaoDePedidos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/GestaoDePedidos",
       "RelativePath": "GestaoDePedidos.styles.css",
       "AssetKind": "All",
@@ -63,7 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Bruno\\Desktop\\GestaoDePedidos\\GestaoDePedidos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestaoDePedidos.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Bruno\\Documents\\GitHub\\Pedidos\\GestaoDePedidos\\GestaoDePedidos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GestaoDePedidos.styles.css"
     }
   ]
 }

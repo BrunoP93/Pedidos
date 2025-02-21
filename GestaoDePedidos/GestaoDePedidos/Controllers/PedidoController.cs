@@ -36,7 +36,7 @@ namespace GestaoDePedidos.Controllers
                 return NotFound();
             }
 
-            return Ok(pedido);
+            return Ok();
         }
 
         // POST api/<PedidosController>
@@ -44,11 +44,27 @@ namespace GestaoDePedidos.Controllers
         public async Task<ActionResult> Post([FromBody] PedidoViewModel pedido)
         {
             if (pedido == null) return BadRequest("Erro ao enviar valores");
-            var novoPedido = new PedidoModel(pedido.Cliente,"teste", 2500);
+            var novoPedido = new PedidoModel(pedido.Cliente,pedido.Produto, pedido.Valor);
 
             await _context.Pedidos.AddAsync(novoPedido);
             await _context.SaveChangesAsync();
             return Ok(pedido);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> Delete(String id)
+        {
+            var converterToGuid = new Guid(id);
+
+            var dbPedido = await _context.Pedidos.FindAsync(converterToGuid);
+
+            if (dbPedido == null)
+                return NotFound();
+
+            _context.Pedidos.Remove(dbPedido);
+
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

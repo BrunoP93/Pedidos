@@ -7,18 +7,15 @@ namespace GestaoDePedidos.Model
     [Table("tb_pedido")]
     public class PedidoModel
     {
-        public PedidoModel(string cliente, string produto, decimal valor, PedidoStatus status )
+        public PedidoModel(string cliente, string produto, decimal valor)
         {
-            Id = Guid.NewGuid();
             Cliente = cliente;
             Produto = produto;
             Valor = valor;
-            Status = status;
-            DataCriacao = DateTime.UtcNow;
         }
 
         [Column("id")]
-        public Guid Id { get; init; }
+        public Guid Id { get; init; } = Guid.NewGuid();
 
         [Column("cliente")]
         public string Cliente { get; set; }
@@ -30,9 +27,9 @@ namespace GestaoDePedidos.Model
         public decimal Valor { get; set; }
 
         [Column("status")]
-        public PedidoStatus Status { get; set; }
+        public PedidoStatus Status { get; set; } = 0;
 
         [Column("dataCriacao")]
-        public DateTime DataCriacao { get; set; }
+        public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
     }
 }
