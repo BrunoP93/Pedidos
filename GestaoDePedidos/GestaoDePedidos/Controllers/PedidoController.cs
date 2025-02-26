@@ -3,6 +3,7 @@ using GestaoDePedidos.Data;
 using GestaoDePedidos.Model;
 using Microsoft.EntityFrameworkCore;
 using GestaoDePedidos.ViewModel;
+using System.Globalization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -44,7 +45,13 @@ namespace GestaoDePedidos.Controllers
         public async Task<ActionResult> Post([FromBody] PedidoViewModel pedido)
         {
             if (pedido == null) return BadRequest("Erro ao enviar valores");
-            var novoPedido = new PedidoModel(pedido.Cliente,pedido.Produto, pedido.Valor);
+
+            var novoPedido = new PedidoModel(
+                pedido.Cliente,
+                pedido.Produto,
+                pedido.Valor,
+                pedido.DataEfetivacao
+                );
 
             await _context.Pedidos.AddAsync(novoPedido);
             await _context.SaveChangesAsync();

@@ -7,11 +7,12 @@ namespace GestaoDePedidos.Model
     [Table("tb_pedido")]
     public class PedidoModel
     {
-        public PedidoModel(string cliente, string produto, decimal valor)
+        public PedidoModel(string cliente, string produto, decimal valor, DateTime dataEfetivacao)
         {
             Cliente = cliente;
             Produto = produto;
             Valor = valor;
+            DataEfetivacao = dataEfetivacao;
         }
 
         [Column("id")]
@@ -31,5 +32,8 @@ namespace GestaoDePedidos.Model
 
         [Column("dataCriacao")]
         public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
+
+        [Column("dataEfetivacao")]
+        public DateTime DataEfetivacao { get; set; }
     }
 }

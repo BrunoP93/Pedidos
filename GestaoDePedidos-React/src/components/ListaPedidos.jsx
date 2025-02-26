@@ -17,6 +17,7 @@ const ListaPedidos = () => {
     const produtoRef = useRef();
     const clienteRef = useRef();
     const valorRef = useRef();
+    const efetivacaoRef = useRef();
 
 
     useEffect(() => {
@@ -37,10 +38,16 @@ const ListaPedidos = () => {
         const produto = produtoRef.current.value;
         const valor = parseFloat(valorRef.current.value);
 
+        const dataEfetivacao = new Date(efetivacaoRef.current.value).toJSON();
+
+        // const dt = efetivacaoRef.current.value.split('-');
+        // const dataEfetivacao = new Date(dt[0], dt[1], dt[2]).toJSON();
+
         if (
             cliente === '' || cliente === null ||
             produto === '' || produto === null ||
-            valor === '' || valor === null
+            valor === '' || valor === null ||
+            dataEfetivacao === '' || dataEfetivacao === null
         ) {
             Swal.fire({
                 title: "Atenção",
@@ -53,6 +60,7 @@ const ListaPedidos = () => {
                 cliente,
                 produto,
                 valor,
+                dataEfetivacao
             }).then((resp) => {
                 console.log(resp);
                 Swal.fire({
@@ -111,9 +119,9 @@ const ListaPedidos = () => {
         setFormVisivel(true);
     }
 
-    const formatarData = (dt) => {
-        const dtFormat= moment(dt).format('DD/MM/yyyy HH:mm');
-        return dtFormat;
+    const converterEmString = (dt) => {
+        const strFormat= moment(dt).format('DD/MM/yyyy');
+        return strFormat;
     }
 
     const formatarStatus = (st) => {
@@ -153,15 +161,13 @@ const ListaPedidos = () => {
                 <div className='mt-5 lg: p-5 rounded-[5px] border-1 border-gray-300'>
                     {filtroPedidos && filtroPedidos.map((item, indice) =>
                     (
-                        <>
-                            <div key={indice}>
-                                <div className='flex justify-between items-center'>
-                                    <p className='lg:text-[25px]'>{item.produto}</p>
-                                    <button onClick={() => abrirInfoModal(item)} className='lg:text-[17px] bg-blue-500 text-white p-1.5 rounded-[5px] cursor-pointer hover:bg-blue-700'>informações</button>
-                                </div>
-                                <hr className='my-4 text-gray-300' />
+                        <div key={indice}>
+                            <div className='flex justify-between items-center'>
+                                <p className='lg:text-[25px]'>{item.produto}</p>
+                                <button onClick={() => abrirInfoModal(item)} className='lg:text-[17px] bg-blue-500 text-white p-1.5 rounded-[5px] cursor-pointer hover:bg-blue-700'>informações</button>
                             </div>
-                        </>
+                            <hr className='my-4 text-gray-300' />
+                        </div>
                     )
                     )}
                     <div className='flex justify-end'>
@@ -189,7 +195,10 @@ const ListaPedidos = () => {
                                                 <span className='font-semibold'>Status: </span>{formatarStatus(unidadePedido.status)}
                                             </p>
                                             <p>
-                                                <span className='font-semibold'>Data de criação: </span>{formatarData(unidadePedido.dataCriacao)}
+                                                <span className='font-semibold'>Data de criação: </span>{converterEmString(unidadePedido.dataCriacao)}
+                                            </p>
+                                            <p>
+                                                <span className='font-semibold'>Data de Efetivação: </span>{converterEmString(unidadePedido.dataEfetivacao)}
                                             </p>
                                         </div>
                                     </div>
@@ -260,10 +269,12 @@ const ListaPedidos = () => {
                                                     <div className="lg:w-100 rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2">
                                                         <input className='w-98 block min-w-0 grow py-1.5 pr-3 pl-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="text" placeholder='Valor' name='valor' ref={valorRef} />
                                                     </div>
+                                                    <div className="lg:w-100 rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2">
+                                                        <input className='w-98 block min-w-0 grow py-1.5 pr-3 pl-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none' type="date" placeholder='Data de efetivação' name='dtEfetivacao' ref={efetivacaoRef} />
+                                                    </div>
                                                     <div className='flex justify-center'>
                                                         <button className='text-[21px] bg-blue-500 text-white px-2 py-1 rounded-[5px] cursor-pointer hover:bg-blue-700'>Enviar</button>
                                                     </div>
-
                                                 </form>
                                             </div>
                                         </div>
