@@ -1,6 +1,6 @@
 //import { useState } from 'react'
 import './App.css'
-import ListaPedidos from './components/ListaPedidos'
+import PainelPedidos from './components/PainelPedidos'
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
         <h1 className="text-[40px] text-center">Lista de Pedidos</h1>
       </div>
       <br />
-      <ListaPedidos />
+      <PainelPedidos />
     </>
   )
 }

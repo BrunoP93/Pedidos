@@ -59,11 +59,9 @@ namespace GestaoDePedidos.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(String id)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            var converterToGuid = new Guid(id);
-
-            var dbPedido = await _context.Pedidos.FindAsync(converterToGuid);
+            var dbPedido = await _context.Pedidos.FindAsync(id);
 
             if (dbPedido == null)
                 return NotFound();
@@ -71,7 +69,7 @@ namespace GestaoDePedidos.Controllers
             _context.Pedidos.Remove(dbPedido);
 
             await _context.SaveChangesAsync();
-            return NoContent();
+            return Ok("Pedido deletado");
         }
     }
 }
